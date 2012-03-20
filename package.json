@@ -6,7 +6,7 @@
   },
   "name": "redox",
   "description": "JavaScript RegExp based doc generator",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "homepage": "https://github.com/onirame/redox",
   "repository": {
     "type": "git",

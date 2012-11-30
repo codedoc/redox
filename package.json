@@ -1,7 +1,7 @@
 {
   "name": "redox",
   "description": "JavaScript RegExp based doc generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Enrico Marino",
     "email": "enrico.marino@email.com"

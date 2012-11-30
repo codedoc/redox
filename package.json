@@ -1,16 +1,25 @@
 {
-  "author": {
-    "name": "Enrico Marino",
-    "email": "enrico.marino@email.com",
-    "url": "http://onirame.no.de"
-  },
   "name": "redox",
   "description": "JavaScript RegExp based doc generator",
   "version": "0.1.0",
-  "homepage": "https://github.com/onirame/redox",
+  "author": {
+    "name": "Enrico Marino",
+    "email": "enrico.marino@email.com"
+  },
+  "maintainers": [
+    {
+      "name": "Enrico Marino",
+      "email": "enrico.marino@email.com"
+    },
+    {
+      "name": "Federico Spini",
+      "email": "federico.spini@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/codedoc-io/redox",
   "repository": {
     "type": "git",
-    "url": "git://github.com/onirame/redox.git"
+    "url": "git://github.com/codedoc-io/redox.git"
   },
   "main": "index.js",
   "engines": {

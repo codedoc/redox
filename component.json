@@ -1,6 +1,6 @@
 {
   "name": "redox",
-  "repo": "codedoc-io/redox",
+  "repo": "apily/redox",
   "description": "JavaScript RegExp based Doc generator",
   "version": "0.1.1",
   "keywords": [

@@ -15,7 +15,7 @@ var redox = exports;
  * Library version.
  */
 
-redox.version = '0.1.1';
+redox.version = '0.1.2';
 
 /**
  * Parse a javascript source code and extract a json doc.

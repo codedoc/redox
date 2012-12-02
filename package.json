@@ -1,7 +1,7 @@
 {
   "name": "redox",
-  "description": "JavaScript RegExp based doc generator",
-  "version": "0.1.0",
+  "description": "JavaScript RegExp based Doc generator",
+  "version": "0.1.1",
   "author": {
     "name": "Enrico Marino",
     "email": "enrico.marino@email.com"
@@ -16,15 +16,18 @@
       "email": "federico.spini@gmail.com"
     }
   ],
-  "homepage": "https://github.com/codedoc-io/redox",
+  "homepage": "https://github.com/apily/redox",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codedoc-io/redox.git"
+    "url": "git://github.com/apily/redox.git"
   },
   "main": "index.js",
   "engines": {
     "node": "*"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
 }

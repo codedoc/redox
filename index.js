@@ -15,7 +15,7 @@ var redox = exports;
  * Library version.
  */
 
-redox.version = '0.1.2';
+redox.version = '0.1.1';
 
 /**
  * Parse a javascript source code and extract a json doc.
@@ -26,9 +26,9 @@ redox.version = '0.1.2';
  */
 
 redox.parse = function (text) {
-  var ret = {};
-  var docs = [];
-  var codes = [];
+  var out = [];
+  var doc;
+  var code;
   var temp = '';
   var line = '';
   var length = text.length;
@@ -67,8 +67,9 @@ redox.parse = function (text) {
     if (status === in_doc) {
       if (end_doc.test(line)) {
         status = in_code;
-        data = redox.parse.doc(temp);
-        docs.push(data);
+        doc = redox.parse.doc(temp);
+        console.log(doc);
+        out.push(doc);
         temp = '';
         line = '';
       }
@@ -78,8 +79,9 @@ redox.parse = function (text) {
     if (status === in_code) {
       if (begin_doc.test(line)) {
         status = in_doc;
-        data = redox.parse.code(temp);
-        codes.push(data);
+        code = redox.parse.code(temp);
+        console.log(code);
+        doc.code = code;
         temp = '';
         line = '';
       }
@@ -87,7 +89,7 @@ redox.parse = function (text) {
     }
   }
 
-  return { docs: docs, codes: codes };
+  return out;
 };
 
 /** 
@@ -166,7 +168,10 @@ redox.tags = [];
 redox.tags.push({
   regexp: /^@example/,
   generator: function (text, match) {
-    return { text: text };
+    return { 
+      type: 'example',
+      text: text 
+    };
   }
 });
 
@@ -178,6 +183,7 @@ redox.tags.push({
   regexp: /@param +(\{ *\w+ *\}) +((\w+ *)*)/,
   generator: function (text, match) {
     return {
+      type: 'param',
       types: match[1].slice(1,-1).split('|'),
       name: match[2].split(' ')[0],
       description: match[2].split(' ').slice(1).join(' ')
@@ -193,6 +199,7 @@ redox.tags.push({
   regexp: /@return +(\{ *\w+ *\}) +((\w+ *)*)/,
   generator: function (text, match) {
     return {
+      type: 'return',
       types: match[1].slice(1,-1).split('|'),
       description: match[2]
     };
@@ -207,6 +214,7 @@ redox.tags.push({
   regexp: /@api +(\w+) +((\w+ *)*)/,
   generator: function (text, match) {
     return {
+      type: 'api',
       visibility: match[1]
     };
   }
@@ -221,6 +229,7 @@ redox.tags.push({
   regexp: /@type +(\{ *\w+ *\}) +((\w+ *)*)/,
   generator: function (text, match) {
     return {
+      type: 'type',
       types: match[1].slice(1,-1).split('|')
     };
   }

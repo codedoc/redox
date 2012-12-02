@@ -1,6 +1,6 @@
 {
   "name": "redox",
-  "description": "JavaScript RegExp based doc generator",
+  "description": "JavaScript RegExp based Doc generator",
   "version": "0.1.1",
   "author": {
     "name": "Enrico Marino",
@@ -26,5 +26,8 @@
     "node": "*"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  }
 }
